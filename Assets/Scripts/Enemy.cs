@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    private float _enemySpeed = 4f;
+    private float _enemySpeed = 6f;
     void Start()
     {
         transform.position = new Vector3(0, 8, 0);
