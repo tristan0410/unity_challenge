@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{c75ab5b2-293b-c2cc-36e6-50cdf4c47ded}</ProjectGuid>
+    <ProjectGuid>{9006a1e9-d0fc-7b37-a450-6f655c809d2b}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -262,7 +262,7 @@
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -609,50 +609,59 @@
     <Reference Include="System.Xml.Serialization">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AdaptivePerformance">
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.AdaptivePerformance.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.AdaptivePerformance.Simulator.Editor">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/Unity.AdaptivePerformance.Simulator.Editor.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.AdaptivePerformance.Simulator.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AdaptivePerformance.Editor">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/Unity.AdaptivePerformance.Editor.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.AdaptivePerformance.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Samsung.Android.Editor">
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.AdaptivePerformance.Samsung.Android.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AdaptivePerformance.Simulator.Extension">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/Unity.AdaptivePerformance.Simulator.Extension.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.AdaptivePerformance.Simulator.Extension.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Subsystem.Registration">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.AdaptivePerformance">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/Galaxy_shooter/Library/ScriptAssemblies/Unity.AdaptivePerformance.dll</HintPath>
+    <Reference Include="Unity.AdaptivePerformance.Simulator.VRR.Extension">
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.AdaptivePerformance.Simulator.VRR.Extension.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Samsung.Android">
+        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.AdaptivePerformance.Samsung.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
