@@ -26,6 +26,27 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        Debug.Log("Hit = " + other.transform.name);
+        //Debug.Log("Hit = " + other.transform.name);
+
+        //if(GameObject.FindWithTag("Player"))
+        if(other.tag == "Player")
+        {
+            Player player = other.transform.GetComponent<Player>(); //to get the component from Player.cs script
+
+            if(player != null)
+            {
+                player.damage();
+            }
+
+            Destroy(this.gameObject);
+        }
+
+        //if(GameObject.FindWithTag("Laser"))
+        if(other.tag == "Laser")
+        {
+            //Destroy(GameObject.FindWithTag("Laser"));
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }
