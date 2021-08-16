@@ -47,9 +47,9 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 0, 0);
         }
-        else if (transform.position.y <= -4.3f)
+        else if (transform.position.y <= -5.8f)
         {
-            transform.position = new Vector3(transform.position.x, -4.3f, 0);
+            transform.position = new Vector3(transform.position.x, -5.8f, 0);
         }
 
         /*
@@ -63,13 +63,13 @@ public class Player : MonoBehaviour
         }
         */
 
-        if (transform.position.x >= 10.0f)
+        if (transform.position.x >= 11.3f)
         {
-            transform.position = new Vector3(-10.0f, transform.position.y, 0);
+            transform.position = new Vector3(-11.3f, transform.position.y, 0);
         }
-        else if (transform.position.x <= -10.0f)
+        else if (transform.position.x <= -11.3f)
         {
-            transform.position = new Vector3(10.0f, transform.position.y, 0);
+            transform.position = new Vector3(11.3f, transform.position.y, 0);
         }
     }
 
