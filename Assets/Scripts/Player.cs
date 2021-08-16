@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _fireRate = 0.5f; //the atk speed
     private float _canFire = -1f; //To calculate fire rate with Time.time
+    [SerializeField]
+    private float _lives = 3f;
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
@@ -78,4 +80,17 @@ public class Player : MonoBehaviour
         //Quaternion rotation means the angular rotation -> Quaternion.identity means the default rotation
         Instantiate(_laser, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
     }
+
+    public void damage()
+    {
+        _lives--;
+
+        if (_lives < 1)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
 }
+
