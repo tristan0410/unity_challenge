@@ -39,6 +39,7 @@
      <Compile Include="Assets\Scripts\Laser.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\SpawnManager.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -627,9 +628,6 @@
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.AdaptivePerformance.Samsung.Android.Editor">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.AdaptivePerformance.Samsung.Android.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -656,12 +654,6 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AdaptivePerformance.Simulator.VRR.Extension">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.AdaptivePerformance.Simulator.VRR.Extension.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AdaptivePerformance.Samsung.Android">
-        <HintPath>C:/Users/ryuz4/Desktop/Unity Projects/unity_challenge/Library/ScriptAssemblies/Unity.AdaptivePerformance.Samsung.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

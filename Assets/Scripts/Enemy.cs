@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     {
         transform.Translate(Vector3.down * _enemySpeed * Time.deltaTime);
 
-        if(transform.position.y <= -6.01)
+        if(transform.position.y <= -7.3)
         {
             float random_X = Random.Range(-8f, 8f); //chooses a range of random number
             transform.position = new Vector3(random_X, 8, 0);
