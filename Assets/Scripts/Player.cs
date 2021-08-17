@@ -70,13 +70,13 @@ public class Player : MonoBehaviour
         }
         */
 
-        if (transform.position.x >= 11.3f)
+        if (transform.position.x >= 12.8f)
         {
-            transform.position = new Vector3(-11.3f, transform.position.y, 0);
+            transform.position = new Vector3(-12.8f, transform.position.y, 0);
         }
-        else if (transform.position.x <= -11.3f)
+        else if (transform.position.x <= -12.8f)
         {
-            transform.position = new Vector3(11.3f, transform.position.y, 0);
+            transform.position = new Vector3(12.8f, transform.position.y, 0);
         }
     }
 
@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
         _canFire = Time.time + _fireRate;
 
         //Quaternion rotation means the angular rotation -> Quaternion.identity means the default rotation
-        Instantiate(_laser, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
+        Instantiate(_laser, transform.position + new Vector3(0, 1.0f, 0), Quaternion.identity);
     }
 
     public void damage()
