@@ -11,6 +11,7 @@ public class SpawnManager : MonoBehaviour
     private float _delay = 5.0f;
     [SerializeField]
     private GameObject _enemyContainer;
+    private bool _stopSpawn = false;
     void Start()
     {
         StartCoroutine(spawnRoutine());
@@ -24,12 +25,17 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator spawnRoutine()
     {
-        while (true)
+        while (_stopSpawn == false)
         {
             Vector3 spawn_pos = new Vector3(Random.Range(-8f, 8f), 8, 0);
             GameObject _newEnemy = Instantiate(_enemyPrefab, spawn_pos, Quaternion.identity);
             _newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(_delay);
         }
+    }
+
+    public void OnPlayerDeath()
+    {
+        _stopSpawn = true;
     }
 }

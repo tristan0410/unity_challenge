@@ -14,9 +14,16 @@ public class Player : MonoBehaviour
     private float _canFire = -1f; //To calculate fire rate with Time.time
     [SerializeField]
     private float _lives = 3f;
+    private SpawnManager _spawnManage; //variable given to grab SpawnManager.cs script
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
+        _spawnManage = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>(); //to get access to SpawnManager.cs Script
+
+        if(_spawnManage == null)
+        {
+            Debug.LogError("Spawn Manager is NULL.");
+        }
     }
 
     // Update is called once per frame
@@ -87,6 +94,7 @@ public class Player : MonoBehaviour
 
         if (_lives < 1)
         {
+            _spawnManage.OnPlayerDeath();
             Destroy(this.gameObject);
         }
     }
