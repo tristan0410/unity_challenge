@@ -11,10 +11,14 @@ public class Player : MonoBehaviour
     private GameObject _laser;
     [SerializeField]
     private float _fireRate = 0.5f; //the atk speed
-    private float _canFire = -1f; //To calculate fire rate with Time.time
     [SerializeField]
     private float _lives = 3f;
+    [SerializeField]
+    private GameObject _TripleShotPrefab;
+    private float _canFire = -1f; //To calculate fire rate with Time.time
     private SpawnManager _spawnManage; //variable given to grab SpawnManager.cs script
+    [SerializeField]
+    private bool _TripleShotEnable = false;
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
@@ -84,8 +88,15 @@ public class Player : MonoBehaviour
     {
         _canFire = Time.time + _fireRate;
 
-        //Quaternion rotation means the angular rotation -> Quaternion.identity means the default rotation
-        Instantiate(_laser, transform.position + new Vector3(0, 1.0f, 0), Quaternion.identity);
+        if(_TripleShotEnable == true)
+        {
+            Instantiate(_TripleShotPrefab, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            //Quaternion rotation means the angular rotation -> Quaternion.identity means the default rotation
+            Instantiate(_laser, transform.position + new Vector3(0, 1.0f, 0), Quaternion.identity);
+        }
     }
 
     public void damage()
@@ -99,5 +110,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void TripleShotEnable()
+    {
+        _TripleShotEnable = true;
+        StartCoroutine(TripleShot_PowerDownRoutine());
+    }
+
+    IEnumerator TripleShot_PowerDownRoutine()
+    {
+        float power_time = 5f;
+        yield return new WaitForSeconds(power_time);
+        _TripleShotEnable = false;
+        Debug.Log("Your triple shot expired.");
+    }
 }
+
+
 
