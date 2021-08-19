@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     private float _speed = 5.0f;
+    private float _speedMult = 2.0f;
     [SerializeField]
     private GameObject _laser;
     [SerializeField]
@@ -17,14 +18,14 @@ public class Player : MonoBehaviour
     private GameObject _TripleShotPrefab;
     private float _canFire = -1f; //To calculate fire rate with Time.time
     private SpawnManager _spawnManage; //variable given to grab SpawnManager.cs script
-    [SerializeField]
     private bool _TripleShotEnable = false;
+    private bool _SpeedBoostEnable = false;
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
         _spawnManage = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>(); //to get access to SpawnManager.cs Script
 
-        if(_spawnManage == null)
+        if (_spawnManage == null)
         {
             Debug.LogError("Spawn Manager is NULL.");
         }
@@ -51,12 +52,12 @@ public class Player : MonoBehaviour
         //transform.Translate(Vector3.right * horizontal_input * speed * Time.deltaTime); 
         //new Vector3(0, 1, 0) * speed * real time
         //transform.Translate(Vector3.up * vertical_input * speed * Time.deltaTime);
-        transform.Translate(direction * _speed * Time.deltaTime);
-
+        transform.Translate(direction * _speed  * Time.deltaTime);
+    
         //transform.position means current position
-        if (transform.position.y >= 0)
+        if (transform.position.y >= 2)
         {
-            transform.position = new Vector3(transform.position.x, 0, 0);
+            transform.position = new Vector3(transform.position.x, 2, 0);
         }
         else if (transform.position.y <= -5.8f)
         {
@@ -88,7 +89,7 @@ public class Player : MonoBehaviour
     {
         _canFire = Time.time + _fireRate;
 
-        if(_TripleShotEnable == true)
+        if (_TripleShotEnable == true)
         {
             Instantiate(_TripleShotPrefab, transform.position, Quaternion.identity);
         }
@@ -113,15 +114,31 @@ public class Player : MonoBehaviour
     public void TripleShotEnable()
     {
         _TripleShotEnable = true;
-        StartCoroutine(TripleShot_PowerDownRoutine());
+        StartCoroutine(PowerDownRoutine());
     }
-
-    IEnumerator TripleShot_PowerDownRoutine()
+    public void SpeedBoostEnable()
+    {
+        _SpeedBoostEnable = true;
+        _speed*= _speedMult;
+        StartCoroutine(PowerDownRoutine());
+    }
+    IEnumerator PowerDownRoutine()
     {
         float power_time = 5f;
-        yield return new WaitForSeconds(power_time);
-        _TripleShotEnable = false;
-        Debug.Log("Your triple shot expired.");
+        if (_TripleShotEnable == true)
+        {
+            yield return new WaitForSeconds(power_time);
+            _TripleShotEnable = false;
+            Debug.Log("Your triple shot expired.");
+        }
+        else if (_SpeedBoostEnable == true)
+        {
+            yield return new WaitForSeconds(power_time);
+            _speed/= _speedMult;
+            _SpeedBoostEnable = false;
+            Debug.Log("Your speed boost expired.");
+        }
+
     }
 }
 
