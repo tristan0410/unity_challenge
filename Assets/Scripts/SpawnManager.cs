@@ -42,7 +42,7 @@ public class SpawnManager : MonoBehaviour
             int randomPowerup = Random.Range(0, 3);
             Instantiate(Powerup_Prefab[randomPowerup], powerup_pos, Quaternion.identity);
             yield return new WaitForSeconds(powerup_delay);
-            //Debug.Log("Triple powerup delay is " + powerup_delay);
+            //Debug.Log("Powerup delay is " + powerup_delay);
             //Debug.Log("The random range is " + powerup_pos);
         }
         

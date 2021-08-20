@@ -14,7 +14,7 @@ public class Powerup : MonoBehaviour
     {
         transform.Translate(Vector3.down * _powerupSpeed * Time.deltaTime);
 
-        if(transform.position.y <= -7.45f)
+        if (transform.position.y <= -7.45f)
         {
             Destroy(this.gameObject);
         }
@@ -22,13 +22,13 @@ public class Powerup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             Player player = other.transform.GetComponent<Player>();
 
-            if(player != null)
-            {                
-                switch(_PowerupID)
+            if (player != null)
+            {
+                switch (_PowerupID)
                 {
                     case 0:
                         player.TripleShotEnable();
@@ -39,11 +39,11 @@ public class Powerup : MonoBehaviour
                         Debug.Log("You get speed powerup.");
                         break;
                     case 2:
-                        //shield powerup
+                        player.ShieldEnable();
                         Debug.Log("You get shield powerup.");
                         break;
                     default:
-                        Debug.Log("Default Value");
+                        //Debug.Log("Default Value");
                         break;
                 }
             }
