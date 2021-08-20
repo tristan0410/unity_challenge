@@ -18,8 +18,10 @@ public class Player : MonoBehaviour
     private GameObject _TripleShotPrefab;
     private float _canFire = -1f; //To calculate fire rate with Time.time
     private SpawnManager _spawnManage; //variable given to grab SpawnManager.cs script
-    private bool _TripleShotEnable = false;
-    private bool _SpeedBoostEnable = false;
+    private bool _TripleShotEnable = false, _ShieldEnable = false, _SpeedBoostEnable = false;
+    [SerializeField]
+    private GameObject _shieldVisualizer;
+
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
@@ -29,6 +31,8 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("Spawn Manager is NULL.");
         }
+
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -52,8 +56,8 @@ public class Player : MonoBehaviour
         //transform.Translate(Vector3.right * horizontal_input * speed * Time.deltaTime); 
         //new Vector3(0, 1, 0) * speed * real time
         //transform.Translate(Vector3.up * vertical_input * speed * Time.deltaTime);
-        transform.Translate(direction * _speed  * Time.deltaTime);
-    
+        transform.Translate(direction * _speed * Time.deltaTime);
+
         //transform.position means current position
         if (transform.position.y >= 2)
         {
@@ -102,6 +106,14 @@ public class Player : MonoBehaviour
 
     public void damage()
     {
+        if (_ShieldEnable == true)
+        {
+            _ShieldEnable = false;
+            _shieldVisualizer.SetActive(false);
+            Debug.Log("Your shield expired.");
+            return;
+        }
+
         _lives--;
 
         if (_lives < 1)
@@ -111,6 +123,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ShieldEnable()
+    {
+        _ShieldEnable = true;
+        _shieldVisualizer.SetActive(true);
+    }
     public void TripleShotEnable()
     {
         _TripleShotEnable = true;
@@ -119,7 +136,7 @@ public class Player : MonoBehaviour
     public void SpeedBoostEnable()
     {
         _SpeedBoostEnable = true;
-        _speed*= _speedMult;
+        _speed *= _speedMult;
         StartCoroutine(PowerDownRoutine());
     }
     IEnumerator PowerDownRoutine()
@@ -134,7 +151,7 @@ public class Player : MonoBehaviour
         else if (_SpeedBoostEnable == true)
         {
             yield return new WaitForSeconds(power_time);
-            _speed/= _speedMult;
+            _speed = 5.0f;
             _SpeedBoostEnable = false;
             Debug.Log("Your speed boost expired.");
         }
