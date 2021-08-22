@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _shieldVisualizer;
     [SerializeField]
-    private int _score;    
+    private int _score;
     private float _canFire = -1f; //To calculate fire rate with Time.time
     private SpawnManager _spawnManage; //variable given to grab SpawnManager.cs script
     private bool _TripleShotEnable = false, _ShieldEnable = false, _SpeedBoostEnable = false;
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         _spawnManage = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>(); //to get access to SpawnManager.cs Script
         _UImanager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
-        if(_UImanager == null)
+        if (_UImanager == null)
         {
             Debug.LogError("UI Manager is NULL.");
         }
@@ -166,7 +166,7 @@ public class Player : MonoBehaviour
     }
     public void addscore(int points) //THIS WILL HELP WITH UI ON SCORE ON THE SCREEN.
     {
-        _score+=points;
+        _score += points;
         _UImanager.update_score(_score);
     }
 

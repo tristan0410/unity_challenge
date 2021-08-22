@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//using UnityEngine.SceneManagement;
+
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
     private Text _scoreText;
     [SerializeField]
     private Text _gameOver_text;
+    [SerializeField]
+    private Text _restart_text;
     [SerializeField]
     private Sprite[] _lives;
     [SerializeField]
@@ -28,9 +32,10 @@ public class UIManager : MonoBehaviour
     {
         _livesIMG.sprite = _lives[lives];
 
-        if(lives == 0)
+        if (lives == 0)
         {
             _gameOver_text.gameObject.SetActive(true);
+            _restart_text.gameObject.SetActive(true);
         }
     }
 }
