@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _fireRate = 0.5f; //the atk speed
     [SerializeField]
-    private float _lives = 3f;
+    private int _lives = 3;
     [SerializeField]
     private GameObject _TripleShotPrefab;
     [SerializeField]
@@ -97,7 +97,6 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(12.8f, transform.position.y, 0);
         }
     }
-
     void shootlaser()
     {
         _canFire = Time.time + _fireRate;
@@ -112,7 +111,6 @@ public class Player : MonoBehaviour
             Instantiate(_laser, transform.position + new Vector3(0, 1.0f, 0), Quaternion.identity);
         }
     }
-
     public void damage()
     {
         if (_ShieldEnable == true)
@@ -124,6 +122,7 @@ public class Player : MonoBehaviour
         }
 
         _lives--;
+        _UImanager.update_lives(_lives);
 
         if (_lives < 1)
         {
@@ -131,7 +130,6 @@ public class Player : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
     public void ShieldEnable()
     {
         _ShieldEnable = true;
@@ -166,7 +164,6 @@ public class Player : MonoBehaviour
         }
 
     }
-
     public void addscore(int points) //THIS WILL HELP WITH UI ON SCORE ON THE SCREEN.
     {
         _score+=points;
