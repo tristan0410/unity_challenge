@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,22 +17,30 @@ public class Player : MonoBehaviour
     private float _lives = 3f;
     [SerializeField]
     private GameObject _TripleShotPrefab;
+    [SerializeField]
+    private GameObject _shieldVisualizer;
+    [SerializeField]
+    private int _score;    
     private float _canFire = -1f; //To calculate fire rate with Time.time
     private SpawnManager _spawnManage; //variable given to grab SpawnManager.cs script
     private bool _TripleShotEnable = false, _ShieldEnable = false, _SpeedBoostEnable = false;
-    [SerializeField]
-    private GameObject _shieldVisualizer;
+    private UIManager _UImanager; //variable given to grab UIManager.cs script
 
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
         _spawnManage = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>(); //to get access to SpawnManager.cs Script
+        _UImanager = GameObject.Find("Canvas").GetComponent<UIManager>();
+
+        if(_UImanager == null)
+        {
+            Debug.LogError("UI Manager is NULL.");
+        }
 
         if (_spawnManage == null)
         {
             Debug.LogError("Spawn Manager is NULL.");
         }
-
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 
@@ -157,6 +166,13 @@ public class Player : MonoBehaviour
         }
 
     }
+
+    public void addscore(int points) //THIS WILL HELP WITH UI ON SCORE ON THE SCREEN.
+    {
+        _score+=points;
+        _UImanager.update_score(_score);
+    }
+
 }
 
 
