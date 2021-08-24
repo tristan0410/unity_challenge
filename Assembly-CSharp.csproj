@@ -42,6 +42,7 @@
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\Powerup.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <None Include="Assets\GameDevHQ\FileBase\Projects\Tutorials\Starter_Files\2D_Galaxy_Assets\Materials\Shaders\Galaxy.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
