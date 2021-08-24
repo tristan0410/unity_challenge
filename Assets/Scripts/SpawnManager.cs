@@ -25,11 +25,12 @@ public class SpawnManager : MonoBehaviour
     {
         while (_stopSpawn == false)
         {
-            Vector3 spawn_pos = new Vector3(Random.Range(-8f, 8f), 8, 0);
-            GameObject _newEnemy = Instantiate(_enemyPrefab, spawn_pos, Quaternion.identity);
+            float random_x = Random.Range(-8f, 8f);
+            Vector3 spawn_pos = new Vector3(random_x, 8f, 0);
+            //Debug.Log("The random range is " + spawn_pos);
+            GameObject _newEnemy = Instantiate(_enemyPrefab, spawn_pos, Quaternion.identity); 
             _newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(_delay);
-            //Debug.Log("The random range is " + spawn_pos);
         }
     }
 

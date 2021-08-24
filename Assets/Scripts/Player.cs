@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _fireRate = 0.5f; //the atk speed
     [SerializeField]
-    private int _lives = 3;
+    public int _lives = 3;
     [SerializeField]
     private GameObject _TripleShotPrefab;
     [SerializeField]
@@ -28,7 +29,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = new Vector3(0, -5, 0);
         _spawnManage = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>(); //to get access to SpawnManager.cs Script
         _UImanager = GameObject.Find("Canvas").GetComponent<UIManager>();
 

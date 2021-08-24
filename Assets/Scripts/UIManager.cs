@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,13 +16,21 @@ public class UIManager : MonoBehaviour
     private Sprite[] _lives;
     [SerializeField]
     private Image _livesIMG;
+    private GameManager _over;
 
     // Start is called before the first frame update
     void Start()
     {
         _scoreText.text = "Score: " + 0;
         _gameOver_text.gameObject.SetActive(false);
+        _over = GameObject.Find("Game_Manager").GetComponent<GameManager>();
+
+        if(_over == null)
+        {
+            Debug.LogError("Player is NULL.");
+        }
     }
+
     public void update_score(int score)
     {
         _scoreText.text = "Score: " + score.ToString(); //ToString() will change it into string 
@@ -36,6 +44,8 @@ public class UIManager : MonoBehaviour
         {
             _gameOver_text.gameObject.SetActive(true);
             _restart_text.gameObject.SetActive(true);
+            _over.GameOver();
+
         }
     }
 }
