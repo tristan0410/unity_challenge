@@ -8,6 +8,7 @@ TagManager:
   - Laser
   - Powerup
   - Score
+  - Boom
   layers:
   - Default
   - TransparentFX

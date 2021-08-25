@@ -9,23 +9,24 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject _enemyPrefab;
     [SerializeField]
-    private float _delay = 5.0f;
+    private float _delay = 2.0f;
     [SerializeField]
     private GameObject _enemyContainer;
     [SerializeField]
     private GameObject[] Powerup_Prefab;
     private bool _stopSpawn = false;
-    void Start()
+
+    public void StartSpawn()
     {
         StartCoroutine(spawnEnemyRoutine());
         StartCoroutine(spawnPowerupRoutine());
     }
-
     IEnumerator spawnEnemyRoutine()
     {
+        yield return new WaitForSeconds(3); //delay time before spwaning
         while (_stopSpawn == false)
         {
-            float random_x = Random.Range(-8f, 8f);
+            float random_x = Random.Range(-8f, 9f);
             Vector3 spawn_pos = new Vector3(random_x, 8f, 0);
             //Debug.Log("The random range is " + spawn_pos);
             GameObject _newEnemy = Instantiate(_enemyPrefab, spawn_pos, Quaternion.identity); 
@@ -36,6 +37,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator spawnPowerupRoutine()
     {
+        yield return new WaitForSeconds(3);
         while (_stopSpawn == false)
         {
             int powerup_delay = Random.Range(3, 8);
