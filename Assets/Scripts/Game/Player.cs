@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
     private GameObject _rightWing, _leftWing;
     [SerializeField]
     private int _score;
+    [SerializeField]
+    private AudioClip _laserSound, _playerExplode;
+    private AudioSource _audioSource;
     private float _canFire = -1f; //To calculate fire rate with Time.time
     private SpawnManager _spawnManage; //variable given to grab SpawnManager.cs script
     private bool _TripleShotEnable = false, _ShieldEnable = false, _SpeedBoostEnable = false;
@@ -34,6 +37,7 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(0, -5, 0);
         _spawnManage = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>(); //to get access to SpawnManager.cs Script
         _UImanager = GameObject.Find("Canvas").GetComponent<UIManager>();
+        _audioSource = GetComponent<AudioSource>();
 
         if (_UImanager == null)
         {
@@ -43,6 +47,15 @@ public class Player : MonoBehaviour
         if (_spawnManage == null)
         {
             Debug.LogError("Spawn Manager is NULL.");
+        }
+
+        if (_audioSource == null)
+        {
+            Debug.LogError("Audio Source is NULL.");
+        }
+        else
+        {
+            _audioSource.clip = _laserSound;
         }
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
@@ -56,6 +69,8 @@ public class Player : MonoBehaviour
         {
             shootlaser();
         }
+
+
     }
 
     void movement()
@@ -113,6 +128,8 @@ public class Player : MonoBehaviour
             //Quaternion rotation means the angular rotation -> Quaternion.identity means the default rotation
             Instantiate(_laser, transform.position + new Vector3(0, 1.0f, 0), Quaternion.identity);
         }
+
+        _audioSource.Play();
     }
     public void damage()
     {
@@ -132,10 +149,11 @@ public class Player : MonoBehaviour
             _spawnManage.OnPlayerDeath();
             Destroy(this.gameObject);
         }
-        else if(_lives == 2)
+        else if (_lives == 2)
         {
             _rightWing.SetActive(true);
-        }else if(_lives == 1)
+        }
+        else if (_lives == 1)
         {
             _leftWing.SetActive(true);
         }
