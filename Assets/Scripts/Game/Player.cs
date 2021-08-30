@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _shieldVisualizer;
     [SerializeField]
+    private GameObject _rightWing, _leftWing;
+    [SerializeField]
     private int _score;
     private float _canFire = -1f; //To calculate fire rate with Time.time
     private SpawnManager _spawnManage; //variable given to grab SpawnManager.cs script
@@ -129,6 +131,13 @@ public class Player : MonoBehaviour
         {
             _spawnManage.OnPlayerDeath();
             Destroy(this.gameObject);
+        }
+        else if(_lives == 2)
+        {
+            _rightWing.SetActive(true);
+        }else if(_lives == 1)
+        {
+            _leftWing.SetActive(true);
         }
     }
     public void ShieldEnable()
