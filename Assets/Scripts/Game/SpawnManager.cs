@@ -26,8 +26,7 @@ public class SpawnManager : MonoBehaviour
         yield return new WaitForSeconds(3); //delay time before spwaning
         while (_stopSpawn == false)
         {
-            float random_x = Random.Range(-8f, 9f);
-            Vector3 spawn_pos = new Vector3(random_x, 8f, 0);
+            Vector3 spawn_pos = new Vector3(Random.Range(-8f, 9f), 8f, 0);
             //Debug.Log("The random range is " + spawn_pos);
             GameObject _newEnemy = Instantiate(_enemyPrefab, spawn_pos, Quaternion.identity); 
             _newEnemy.transform.parent = _enemyContainer.transform;
